@@ -1,0 +1,33 @@
+           <table width="100%" border="1" style="border-collapse:collapse;">
+<thead>
+<tr>
+<th><strong>ID</strong></th>
+<th><strong>Tipo de usuario</strong></th>
+<th><strong>Nombre</strong></th>
+<th><strong>Correo</strong></th>
+<th><strong>Contraseña</strong></th>
+<th><strong>Edit</strong></th>
+<th><strong>Delete</strong></th>
+</tr>
+</thead>
+<tbody>
+<?php
+$sel_query="Select * from usuarios;";
+$result = mysqli_query($con,$sel_query);
+while($row = mysqli_fetch_assoc($result)) { ?>
+<tr>
+<td align="center"><?php echo $row["id"]; ?></td>
+<td align="center"><?php echo $row["tipo_user"]; ?></td>
+<td align="center"><?php echo $row["username"]; ?></td>
+<td align="center"><?php echo $row["email"]; ?></td>
+<td align="center"><?php echo $row["password"]; ?></td>
+<td align="center"><a href="editu.php?id=<?php echo $row["id"]; ?>">Edit</a></td>
+<td align="center"><a href="delete.php?id=<?php echo $row["id"]; ?>">Delete</a></td>
+</tr>
+<?php } ?>
+</tbody>
+</table>
+
+
+
+
